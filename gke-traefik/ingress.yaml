@@ -1,0 +1,17 @@
+kind: List
+apiVersion: v1
+items:
+  - apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: metrics-demo
+      annotations:
+        kubernetes.io/ingress.class: traefik #default for minikube is nginx
+    spec:
+      rules:
+      - http:
+          paths:
+          - path: /mighty-fine
+            backend:
+              serviceName: mighty-fine-fe
+              servicePort: http
