@@ -16,5 +16,6 @@ items:
               serviceName: mighty-fine-fe
               servicePort: http
           - path: /grafana
+            backend:
               serviceName: grafana
               servicePort: http
