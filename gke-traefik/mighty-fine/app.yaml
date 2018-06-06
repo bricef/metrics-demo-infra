@@ -14,4 +14,3 @@ spec:
         image: quay.io/brice/metrics-demo:v6-info-endpoint
         ports:
         - containerPort: 3000
-

@@ -1,12 +1,4 @@
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  annotations:
-    flux.weave.works/automated: "true"
-  name: traefik-ingress-controller
-  namespace: kube-system
----
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
@@ -28,7 +20,7 @@ spec:
       serviceAccountName: traefik-ingress-controller
       terminationGracePeriodSeconds: 60
       containers:
-      - image: traefik
+      - image: traefik:1.6-alpine
         name: traefik-ingress-lb
         ports:
         - name: http
@@ -39,20 +31,4 @@ spec:
         - --api
         - --kubernetes
         - --logLevel=INFO
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: traefik-ingress-service
-  namespace: kube-system
-spec:
-  selector:
-    k8s-app: traefik-ingress-lb
-  ports:
-    - protocol: TCP
-      port: 80
-      name: web
-    - protocol: TCP
-      port: 8080
-      name: admin
-  type: NodePort
+

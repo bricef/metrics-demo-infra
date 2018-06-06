@@ -1,21 +1,48 @@
-kind: List
-apiVersion: v1
-items:
-  - apiVersion: extensions/v1beta1
-    kind: Ingress
-    metadata:
-      name: metrics-demo
-      annotations:
-        kubernetes.io/ingress.class: traefik #default for minikube is nginx
-    spec:
-      rules:
-      - http:
-          paths:
-          - path: /mighty-fine
-            backend:
-              serviceName: mighty-fine-fe
-              servicePort: http
-          - path: /grafana
-            backend:
-              serviceName: grafana
-              servicePort: http
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mighty-fine
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /mighty-fine
+        backend:
+          serviceName: mighty-fine-fe
+          servicePort: http
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik
+  namespace: kube-system
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /traefik
+        backend:
+          serviceName: traefik-ingress-service
+          servicePort: admin
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /grafana
+        backend:
+          serviceName: grafana
+          servicePort: http

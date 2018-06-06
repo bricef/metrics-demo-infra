@@ -12,8 +12,18 @@ spec:
       containers:
       - name: grafana
         image: grafana/grafana
+        imagePullPolicy: Always
         ports:
-        - containerPort: 3000
+          - containerPort: 3000
+        env: 
+          - name: GF_SERVER_DOMAIN
+            value: "35.232.224.49"
+          - name: GF_SERVER_ROOT_URL
+            value: "http://35.232.224.49/grafana/"
+          - name: GF_SECURITY_ADMIN_USER
+            value: "admin"
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            value: "nimda"
 ---
 apiVersion: v1
 kind: Service
