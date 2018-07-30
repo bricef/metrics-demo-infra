@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: dotnet-prometheus-example
-        image: quay.io/brice/dotnet-prometheus-example:0a885b4a73b2b18f172782f6b315f90a006e0cae
+        image: quay.io/brice/dotnet-prometheus-example:d0a2de0613b0fb03b1e116033611bd37c1a742e0
         ports:
         - containerPort: 80
