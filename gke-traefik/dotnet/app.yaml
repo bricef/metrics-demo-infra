@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dotnet-prometheus-example
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dotnet-prometheus-example
+    spec:
+      containers:
+      - name: dotnet-prometheus-example
+        image: quay.io/brice/dotnet-prometheus-example:latest
+        ports:
+        - containerPort: 3000
