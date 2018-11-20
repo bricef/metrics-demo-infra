@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: dotnet-load-tester
-        image: quay.io/brice/dotnet-load-tester:latest
+        image: quay.io/brice/dotnet-load-tester:master-e572813
