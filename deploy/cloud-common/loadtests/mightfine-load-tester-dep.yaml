@@ -5,6 +5,7 @@ metadata:
   name: mightyfine-load-tester
   annotations:
     flux.weave.works/tag.mightyfine-load-tester: glob:master-*
+    flux.weave.works/automated: 'true'
 spec:
   replicas: 1
   template:
