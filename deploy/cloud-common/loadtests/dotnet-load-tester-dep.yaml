@@ -1,7 +1,10 @@
+---
 apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
 kind: Deployment
 metadata:
   name: dotnet-load-tester
+  annotations:
+    flux.weave.works/tag.dotnet-load-tester: glob:master-*
 spec:
   replicas: 1
   template:
