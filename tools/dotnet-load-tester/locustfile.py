@@ -3,7 +3,7 @@ from locust import HttpLocust, TaskSet, task
 class DemoLoadTest(TaskSet):
     @task(1)
     def test_endpoint(self):
-        self.client.get("/test", headers={"Accept": "*/*"})
+        self.client.get("/dotnet/test", headers={"Accept": "*/*"})
 
 
 class MyLocust(HttpLocust):
