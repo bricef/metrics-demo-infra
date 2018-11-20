@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: mightyfine-load-tester
-        image: quay.io/brice/mightyfine-load-tester:latest
+        image: quay.io/brice/mightyfine-load-tester:master-e572813
