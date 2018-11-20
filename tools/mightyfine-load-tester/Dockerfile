@@ -4,7 +4,7 @@ RUN pip install locustio
 
 ADD locustfile.py .
 
-ENTRYPOINT ["locust", "-H", "mighty-fine-fe.default:3000", "--no-web", "-c", "1000", "-r", "1"]
+ENTRYPOINT ["locust", "-H", "http://mighty-fine-fe.default:3000", "--no-web", "-c", "1000", "-r", "1"]
 
 
 
