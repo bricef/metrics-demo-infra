@@ -5,7 +5,6 @@ metadata:
   name: dotnet-load-tester
   annotations:
     flux.weave.works/tag.dotnet-load-tester: semver:>0.1.1
-    flux.weave.works/automated: 'true'
 spec:
   replicas: 1
   template:
