@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: dotnet-load-tester
   annotations:
-    flux.weave.works/tag.dotnet-load-tester: semver:>0.1.1
+    flux.weave.works/tag.dotnet-load-tester: glob:*
 spec:
   replicas: 1
   template:
