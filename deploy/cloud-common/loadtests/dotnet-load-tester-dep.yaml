@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: dotnet-load-tester
   annotations:
-    flux.weave.works/tag.dotnet-load-tester: glob:*
+    flux.weave.works/tag.dotnet-load-tester: regexp:^mast
 spec:
   replicas: 1
   template:
