@@ -6,9 +6,9 @@ metadata:
   annotations:
     flux.weave.works/tag.dotnet-load-tester: regexp:^mast
     flux.weave.works/automated: 'true'
-BAD YAML HERE!!!!
 spec:
   replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
