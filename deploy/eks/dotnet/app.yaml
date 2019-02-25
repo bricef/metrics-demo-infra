@@ -1,0 +1,19 @@
+---
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dotnet-prometheus-example
+  annotations:
+    flux.weave.works/automated: 'true'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dotnet-prometheus-example
+    spec:
+      containers:
+      - name: dotnet-prometheus-example
+        image: quay.io/brice/dotnet-prometheus-example:3bfe9716d058555b05d55b6cbbc5e90b66dd7799
+        ports:
+        - containerPort: 80

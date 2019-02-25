@@ -1,0 +1,18 @@
+---
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dotnet-load-tester
+  annotations:
+    flux.weave.works/tag.dotnet-load-tester: regexp:^mast
+    flux.weave.works/automated: 'true'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dotnet-load-tester
+    spec:
+      containers:
+      - name: dotnet-load-tester
+        image: quay.io/brice/dotnet-load-tester:master-2334bd9

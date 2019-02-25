@@ -1,0 +1,18 @@
+---
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mightyfine-load-tester
+  annotations:
+    flux.weave.works/tag.mightyfine-load-tester: glob:master-*
+    flux.weave.works/automated: 'true'
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mightyfine-load-tester
+    spec:
+      containers:
+      - name: mightyfine-load-tester
+        image: quay.io/brice/mightyfine-load-tester:master-2334bd9
