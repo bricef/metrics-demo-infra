@@ -12,6 +12,6 @@ spec:
     spec:
       containers:
       - name: mighty-fine
-        image: quay.io/brice/metrics-demo:v3-custom-metrics
+        image: quay.io/brice/metrics-demo:v6
         ports:
         - containerPort: 3000
