@@ -3,6 +3,10 @@ apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
 kind: Deployment
 metadata:
   name: mighty-fine-fe
+  annotations:
+    flux.weave.works/locked_user: Demo Demo <demo@weave.works>
+    flux.weave.works/locked: 'true'
+    flux.weave.works/locked_msg: '"demo"'
 spec:
   replicas: 1
   template:
