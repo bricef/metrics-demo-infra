@@ -5,7 +5,7 @@ metadata:
   name: podinfo
   namespace: dev
   annotations:
-    flux.weave.works/tag.chart-image: glob:dev-*
+    flux.weave.works/tag.chart-image: glob:*
 spec:
   releaseName: podinfo
   chart:
